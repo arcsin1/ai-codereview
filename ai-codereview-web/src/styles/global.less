@@ -1,0 +1,92 @@
+// ============================================
+// Global Antd Theme Customization
+// ============================================
+
+// Primary color palette
+@primary-color: #5b4eff;
+
+// Base colors
+@success-color: #52c41a;
+@warning-color: #faad14;
+@error-color: #ff4d4f;
+@info-color: #1890ff;
+
+// Layout
+@layout-body-background: #f5f7fa;
+@layout-header-background: #001529;
+@layout-sider-background: #001529;
+
+// Typography
+@heading-color: #1a1a2e;
+@text-color: #333333;
+@text-color-secondary: #666666;
+@disabled-color: #b3b3b3;
+
+// Border
+@border-color-base: #e8e8e8;
+@border-radius-base: 8px;
+@border-radius-sm: 6px;
+
+// Shadows
+@box-shadow-base: 0 4px 20px rgba(0, 0, 0, 0.08);
+@box-shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+// Buttons
+@btn-height-base: 44px;
+@btn-height-lg: 48px;
+@btn-radius-base: 8px;
+
+// Inputs
+@input-height-base: 44px;
+@input-border-radius-base: 8px;
+
+// Cards
+@card-radius: 12px;
+@card-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+// ============================================
+// Reset & Global Styles
+// ============================================
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Antd component overrides
+.ant-btn-primary {
+  box-shadow: 0 4px 12px rgba(91, 78, 255, 0.3);
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(91, 78, 255, 0.4);
+  }
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector {
+  border-radius: @border-radius-base !important;
+}
+
+.ant-card {
+  border-radius: @card-radius;
+  box-shadow: @card-shadow;
+}
+
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  box-shadow: 0 0 0 3px rgba(91, 78, 255, 0.15);
+}
+
+.ant-form-item-label > label {
+  font-weight: 500;
+}

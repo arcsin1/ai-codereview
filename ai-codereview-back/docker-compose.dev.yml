@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 数据库
+  postgres:
+    image: postgres:15-alpine
+    container_name: ai-codereview-postgres-dev
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ai_codereview}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+      # 挂载初始化脚本（仅在数据卷为空时执行）
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/01-init-schema.sql
+      - ./scripts/seed.sql:/docker-entrypoint-initdb.d/02-seed-data.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ai-codereview-network
+
+  # Redis 缓存
+  redis:
+    image: redis:7-alpine
+    container_name: ai-codereview-redis-dev
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_dev_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ai-codereview-network
+
+  # Redis Commander (Redis 管理工具)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ai-codereview-redis-commander
+    environment:
+      REDIS_HOSTS: local:redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    networks:
+      - ai-codereview-network
+    profiles:
+      - tools
+
+volumes:
+  postgres_dev_data:
+    driver: local
+  redis_dev_data:
+    driver: local
+
+networks:
+  ai-codereview-network:
+    driver: bridge

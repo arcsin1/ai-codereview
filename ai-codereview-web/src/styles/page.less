@@ -1,0 +1,201 @@
+// ============================================
+// Common Page Styles
+// ============================================
+
+@page-bg: #f0f2f5;
+@card-bg: #ffffff;
+@primary-color: #5b4eff;
+@text-primary: #1a1a2e;
+@text-secondary: #6b7280;
+@border-color: #e5e7eb;
+
+// Stat card
+.stat-card {
+  background: @card-bg;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  :deep(.ant-statistic-title) {
+    color: @text-secondary;
+    font-size: 14px;
+  }
+
+  :deep(.ant-statistic-content) {
+    font-size: 28px;
+    font-weight: 600;
+  }
+}
+
+// Action card for quick actions
+.action-card {
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: @primary-color;
+    box-shadow: 0 4px 16px rgba(91, 78, 255, 0.15);
+  }
+
+  :deep(.ant-card-body) {
+    padding: 24px 16px;
+  }
+}
+
+// Page Container
+.page-container {
+  padding: 0;
+  margin: -24px;
+  min-height: calc(100vh - 112px);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: @card-bg;
+  border-bottom: 1px solid @border-color;
+
+  .page-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: @text-primary;
+  }
+}
+
+.page-content {
+  padding: 24px;
+}
+
+// Card wrapper for table pages
+.page-card {
+  background: @card-bg;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 0;
+  height: 100%;
+
+  :deep(.ant-card-body) {
+    padding: 16px 24px 24px;
+  }
+}
+
+// Table enhancements
+.page-table {
+  :deep(.ant-table) {
+    background: transparent;
+
+    .ant-table-thead > tr > th {
+      background: #fafafa;
+      font-weight: 600;
+      color: @text-secondary;
+      font-size: 13px;
+      border-bottom: 1px solid @border-color;
+    }
+
+    .ant-table-tbody > tr > td {
+      border-bottom: 1px solid @border-color;
+      font-size: 14px;
+      color: @text-primary;
+    }
+
+    .ant-table-tbody > tr:hover > td {
+      background: #f8f9fc;
+    }
+
+    .ant-table-row {
+      transition: background 0.2s ease;
+    }
+  }
+}
+
+// Pagination styles
+.page-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid @border-color;
+
+  :deep(.ant-pagination) {
+    margin: 0;
+  }
+
+  .pagination-total {
+    color: @text-secondary;
+    font-size: 14px;
+  }
+}
+
+// Action bar
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+// Stats row
+.stats-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  .stat-card {
+    flex: 1;
+    background: linear-gradient(135deg, @primary-color, darken(@primary-color, 10%));
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: white;
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+  }
+}
+
+// Search bar
+.search-bar {
+  width: 280px;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .stats-row {
+    flex-direction: column;
+  }
+}
