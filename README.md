@@ -583,15 +583,14 @@ docker-compose logs -f
 
 | 服务 | 地址 | 说明 |
 |------|------|------|
-| 前端 | http://localhost:8080 | Web 界面 |
-| 后端 API | http://localhost:3000 | API 服务 |
-| API 文档 | http://localhost:3000/api/docs | Swagger 文档 |
-| pgAdmin | http://localhost:5050 | 数据库管理 |
+| 前端 | http://localhost:8081 | Web 界面 |
+| 后端 API | http://localhost:3001 | API 服务 |
+
 
 ### 默认账户
 
 - **用户名**: `admin`
-- **密码**: `admin`
+- **密码**: `123456`
 
 ⚠️ **生产环境请立即修改默认密码！**
 
