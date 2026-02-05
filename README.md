@@ -20,7 +20,12 @@
 
 <div align="center">
 
-![AI Code Review Preview](./image.png)
+<table>
+  <tr>
+    <td><img src="./image.png" width="800" alt="AI Code Review Preview - Pull Request"/></td>
+    <td><img src="./image-push.png" width="800" alt="AI Code Review Preview - Push Event"/></td>
+  </tr>
+</table>
 
 </div>
 
