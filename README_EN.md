@@ -10,7 +10,7 @@
 
 **Intelligent Code Review System - AI-Powered Automated Code Review Platform**
 
-[中文](./README.md) | [Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Deployment](#-deployment) • [Contributing](#-contributing)
+[中文](./README.md) | [Features](#-features-1) • [Quick Start](#-quick-start-1) • [Architecture](#-architecture-design) • [Deployment](#-deployment-guide) • [Contributing](#-contributing-1)
 
 </div>
 

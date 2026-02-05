@@ -10,7 +10,7 @@
 
 **智能代码审查系统 - 基于 AI 的自动化代码审查平台**
 
-[English](./README_EN.md) | [功能特性](#功能特性) • [快速开始](#快速开始) • [架构设计](#架构设计) • [部署指南](#部署指南) • [贡献指南](#贡献指南)
+[English](./README_EN.md) | [功能特性](#-功能特性) • [快速开始](#-快速开始) • [架构设计](#-架构设计) • [部署指南](#-部署指南) • [贡献指南](#-贡献指南)
 
 </div>
 
@@ -408,7 +408,7 @@ daily_reports (日报表)
 
 ## 🚀 快速开始
 
-### 环境要求
+### 环境要求（推荐docker部署）
 
 - **Node.js**: 20.x+
 - **pnpm**: 8.x+
@@ -570,7 +570,7 @@ ngrok restart
 ### Docker 部署（生产环境）
 
 ```bash
-# 1. 配置环境变量
+# 1. 配置环境变量（这里可以不需要改）
 cp ai-codereview-back/.env.example ai-codereview-back/.env
 # 编辑 .env 文件，修改数据库密码、JWT 密钥等
 
@@ -582,6 +582,9 @@ docker-compose ps
 
 # 4. 查看日志
 docker-compose logs -f
+
+# 5. 访问地址
+http://localhost:8081 
 ```
 
 ### 访问地址
