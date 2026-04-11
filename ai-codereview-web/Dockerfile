@@ -8,10 +8,13 @@ ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 # 安装 pnpm
 RUN npm install -g pnpm
 
+# 配置淘宝镜像源
+RUN pnpm config set registry https://registry.npmmirror.com
+
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 RUN pnpm run build
